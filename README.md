@@ -1,5 +1,11 @@
 # Cloudflare Turnstile for CodeIgniter 4
-CI4CFTurnstile is a CodeIgniter 4 library that integrates Cloudflare's Turnstile CAPTCHA for form validation. It supports both implicit and explicit rendering modes.
+![Build Status](https://github.com/davodm/codeigniter4-turnstile/actions/workflows/main.yml/badge.svg)
+![Packagist Version](https://img.shields.io/packagist/v/davodm/codeigniter4-turnstile)
+![License](https://img.shields.io/github/license/davodm/codeigniter4-turnstile)
+![Downloads](https://img.shields.io/packagist/dt/davodm/codeigniter4-turnstile)
+![GitHub stars](https://img.shields.io/github/stars/davodm/codeigniter4-turnstile?style=social)
+
+**CI4CFTurnstile** is a [CodeIgniter 4](https://github.com/codeigniter4/CodeIgniter4) library that integrates Cloudflare's Turnstile CAPTCHA for form validation. It supports both implicit and explicit rendering modes.
 
 You can find the document of Cloudflare Turnstile [here](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/).
 
@@ -8,7 +14,7 @@ You can find the document of Cloudflare Turnstile [here](https://developers.clou
 Install the package via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require your-vendor/ci4cfturnstile
+composer require davodm/codeigniter4-turnstile
 ```
 ### 2. Configuration
 After installation, configure your Cloudflare Turnstile site and secret keys. You can do this by setting the environment variables in your .env file:
