@@ -1,0 +1,15 @@
+{
+    "name": "davodm/codeigniter4-turnstile",
+    "description": "CodeIgniter 4 package for integrating Cloudflare Turnstile Captcha",
+    "type": "library",
+    "autoload": {
+      "psr-4": {
+        "CI4CFTurnstile\\": "src/"
+      }
+    },
+    "require": {
+      "php": ">=7.4",
+      "codeigniter4/framework": "^4.0"
+    }
+  }
+  
