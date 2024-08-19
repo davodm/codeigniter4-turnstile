@@ -20,8 +20,8 @@ composer require davodm/codeigniter4-turnstile
 After installation, configure your Cloudflare Turnstile site and secret keys. You can do this by setting the environment variables in your .env file:
 
 ```bash
-cloudflare.turnstile.sitekey=your-site-key
-cloudflare.turnstile.secretkey=your-secret-key
+cloudflare.turnstile.siteKey=your-site-key
+cloudflare.turnstile.secretKey=your-secret-key
 ```
 
 ## Usage
