@@ -30,10 +30,10 @@ class Services extends \CodeIgniter\Config\Services
             throw new Exception(Turnstile::class . ' configuration not found.', 1);
         }
 
-        if (empty($config->secret)) {
+        if (empty($config->secretKey)) {
             throw new Exception('The secret parameter is missing in Turnstile configuration.', 2);
         }
 
-        return new Verify($config->secret);
+        return new Verify($config->secretKey);
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-use CI4CFTurnstile\Config\Turnstile;
-
 if (!function_exists('turnstile_implicit')) {
     /**
      * Renders the Turnstile CAPTCHA in implicit mode.
@@ -15,7 +13,7 @@ if (!function_exists('turnstile_implicit')) {
      */
     function turnstile_implicit(string $fieldName = 'turnstile', string $theme = 'auto', string $size = 'normal'): string
     {
-        $config = new Turnstile();
+        $config = config(CI4CFTurnstile\Config\Turnstile::class);
 
         if (empty($config->siteKey)) {
             throw new \Exception('The siteKey parameter is missing.', 3);
@@ -70,7 +68,7 @@ if (!function_exists('turnstile_explicit_render')) {
         global $explicitFields;
 
         if (!empty($explicitFields)) {
-            $config = new Turnstile();
+            $config = config(CI4CFTurnstile\Config\Turnstile::class);
 
             if (empty($config->siteKey)) {
                 throw new \Exception('The siteKey parameter is missing.', 3);
