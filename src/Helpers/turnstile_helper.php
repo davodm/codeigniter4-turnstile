@@ -1,5 +1,6 @@
 <?php
-
+// Global Variable to store the registered explicit fields
+$turnstile_explicitFields = [];
 if (!function_exists('turnstile_implicit')) {
     /**
      * Renders the Turnstile CAPTCHA in implicit mode.
@@ -45,9 +46,9 @@ if (!function_exists('turnstile_explicit')) {
      */
     function turnstile_explicit(string $fieldName = 'turnstile', string $theme = 'auto', string $size = 'normal'): void
     {
-        static $explicitFields = [];
+        global $turnstile_explicitFields;
 
-        $explicitFields[] = [
+        $turnstile_explicitFields[] = [
             'fieldName' => $fieldName,
             'theme' => $theme,
             'size' => $size,
@@ -65,9 +66,9 @@ if (!function_exists('turnstile_explicit_render')) {
      */
     function turnstile_explicit_render(): string
     {
-        global $explicitFields;
+        global $turnstile_explicitFields;
 
-        if (!empty($explicitFields)) {
+        if (!empty($turnstile_explicitFields)) {
             $config = config(CI4CFTurnstile\Config\Turnstile::class);
 
             if (empty($config->siteKey)) {
@@ -75,7 +76,7 @@ if (!function_exists('turnstile_explicit_render')) {
             }
 
             return view('CI4CFTurnstile\Views\turnstile_explicit', [
-                'fields' => $explicitFields,
+                'fields' => $turnstile_explicitFields,
                 'siteKey' => $config->siteKey
             ]);
         }
