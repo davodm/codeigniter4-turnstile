@@ -19,7 +19,7 @@ class TurnstileRules
      */
     public function turnstile_verify(string $str, ?string &$error = null): bool
     {
-        $service=new CI4CFTurnstile\Libraries\Verify();
+        $service=service('turnstile');
         try{
             return $service->verify($str);
         }catch(\Exception $e){
