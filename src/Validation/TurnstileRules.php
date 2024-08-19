@@ -21,7 +21,11 @@ class TurnstileRules
     {
         $service=service('turnstile');
         try{
-            return $service->verify($str);
+            if(!$service->verify($str)){
+                $error=lang('Turnstile.failed_verification');
+                return false;
+            }
+            return true;
         }catch(\Exception $e){
             $lang=lang('Turnstile.error_' . $e->getCode());
             $error = $lang ?? $e->getMessage();
