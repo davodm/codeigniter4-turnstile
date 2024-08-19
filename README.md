@@ -28,13 +28,14 @@ cloudflare.turnstile.secretkey=your-secret-key
 
 ### Rendering CAPTCHA
 
-The library provides helper functions to render the CAPTCHA in your views: `turnstile_implicit()`, `turnstile_explicit()`, and `turnstile_explicit_render()`.
+The library provides helper functions `turnsitle` to render the CAPTCHA in your views: `turnstile_implicit()`, `turnstile_explicit()`, and `turnstile_explicit_render()`.
 
 
 #### Implicit Mode
 In your view file, you can render the Turnstile CAPTCHA in implicit mode by calling:
 
 ```php
+helper('turnstile');
 echo turnstile_implicit('turnstile_field_name', 'auto', 'normal');
 ```
 
@@ -45,6 +46,7 @@ For explicit mode, you need to follow these steps:
 1. **Register Fields**: In your view file, register the fields where the CAPTCHA should appear:
 
 ```php
+helper('turnstile');
 turnstile_explicit('turnstile_field_name', 'dark', 'normal');
 ```
 
@@ -101,6 +103,7 @@ class FormController extends Controller
 {
     public function index()
     {
+        helper('turnstile');
         return view('form');
     }
 

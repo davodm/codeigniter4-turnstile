@@ -26,7 +26,7 @@ if (!function_exists('turnstile_implicit')) {
         $callJS = !$inited; // Determine whether to call JS (only on first run)
         $inited = true; // Mark as initialized
 
-        return view('Views/turnstile_implicit', [
+        return view('CI4CFTurnstile\Views\turnstile_implicit', [
             'siteKey' => $config->siteKey,
             'fieldName' => $fieldName,
             'theme' => $theme,
@@ -77,7 +77,7 @@ if (!function_exists('turnstile_explicit_render')) {
                 throw new Exception('The siteKey parameter is missing.', 3);
             }
 
-            return view('Views/turnstile_explicit', [
+            return view('CI4CFTurnstile\Views\turnstile_explicit', [
                 'fields' => $explicitFields,
                 'siteKey' => $config->siteKey
             ]);
