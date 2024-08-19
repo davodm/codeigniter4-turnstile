@@ -1,7 +1,6 @@
 <?php
 
 use CI4CFTurnstile\Config\Turnstile;
-use Exception;
 
 if (!function_exists('turnstile_implicit')) {
     /**
@@ -12,14 +11,14 @@ if (!function_exists('turnstile_implicit')) {
      * @param string $size The size of the CAPTCHA ('normal', 'compact').
      *
      * @return string Rendered view for the implicit CAPTCHA.
-     * @throws Exception If the site key is missing.
+     * @throws \Exception If the site key is missing.
      */
     function turnstile_implicit(string $fieldName = 'turnstile', string $theme = 'auto', string $size = 'normal'): string
     {
         $config = new Turnstile();
 
         if (empty($config->siteKey)) {
-            throw new Exception('The siteKey parameter is missing.', 3);
+            throw new \Exception('The siteKey parameter is missing.', 3);
         }
 
         static $inited = false; // Track if the JS script has been initialized
@@ -64,7 +63,7 @@ if (!function_exists('turnstile_explicit_render')) {
      * This function should be called before the closing </body> tag.
      *
      * @return string Rendered JavaScript for the explicit CAPTCHA.
-     * @throws Exception If the site key is missing.
+     * @throws \Exception If the site key is missing.
      */
     function turnstile_explicit_render(): string
     {
@@ -74,7 +73,7 @@ if (!function_exists('turnstile_explicit_render')) {
             $config = new Turnstile();
 
             if (empty($config->siteKey)) {
-                throw new Exception('The siteKey parameter is missing.', 3);
+                throw new \Exception('The siteKey parameter is missing.', 3);
             }
 
             return view('CI4CFTurnstile\Views\turnstile_explicit', [
